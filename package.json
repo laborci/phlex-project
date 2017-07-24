@@ -1,0 +1,34 @@
+{
+  "name": "phlex",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack"
+  },
+  "author": "Gergely Laborci",
+  "license": "ISC",
+  "dependencies": {
+    "copy": "^0.3.0",
+    "css-loader": "^0.28.4",
+    "file-loader": "^0.11.2",
+    "glob": "^7.1.2",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-browserify": "^0.5.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-less": "^3.0.5",
+    "gulp-riot": "^1.0.5",
+    "gulp-sourcemaps": "^1.9.1",
+    "gulp-uglifycss": "^1.0.5",
+    "gulp-watch": "^4.3.5",
+    "jquery": "^3.2.1",
+    "less": "^2.7.2",
+    "less-loader": "^4.0.5",
+    "load-css-file": "^1.0.0",
+    "load-js": "^1.2.0",
+    "style-loader": "^0.18.2",
+    "watchify": "^3.9.0",
+    "webpack": "^3.3.0"
+  }
+}
