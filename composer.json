@@ -1,5 +1,5 @@
 {
-    "name": "Your awesome phlex project",
+    "name": "laborci/phlex-project",
     "require": {
 	"laborci/phlex": "dev-master"
     }
