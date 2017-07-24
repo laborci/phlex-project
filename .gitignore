@@ -1,6 +1,3 @@
 .idea
 vendor
 node_modules
-var/*/*
-public/bower
-public/dist
