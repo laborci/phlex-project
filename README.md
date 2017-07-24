@@ -12,3 +12,5 @@
 Include the config/local.conf into your apache httpd.conf!
 
 Test in the browser!
+
+**GoodGrind!**
