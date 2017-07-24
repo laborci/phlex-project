@@ -4,8 +4,8 @@ var webpack = require("webpack");
 
 function getEntries(){
 	return Object.assign({},
-		//getFolderEntries('./src', 'www-'),
-		getFolderEntries('./App/Site/Admin/@assets', 'admin/'),
+		getFolderEntries('./App/Site/Website/@frontend', 'www/'),
+		getFolderEntries('./App/Site/Admin/@frontend', 'admin/'),
 	);
 }
 
