@@ -2,6 +2,7 @@
 
 use App\Site\Website\Page\Index;
 use Phlex\ErrorHandling\ErrorCatcher;
+use Phlex\Routing\Request;
 use Phlex\Routing\Router;
 
 class Site extends \Phlex\Routing\Site {
