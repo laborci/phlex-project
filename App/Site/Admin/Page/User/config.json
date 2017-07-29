@@ -1,0 +1,12 @@
+{
+	"list": {
+		"fields": {
+			"id": {
+				"label": "id"
+			},
+			"name": {
+				"label": "név"
+			}
+		}
+	}
+}

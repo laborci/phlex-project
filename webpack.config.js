@@ -1,6 +1,6 @@
-var path = require('path');
-var glob = require("glob");
-var webpack = require("webpack");
+let path = require("path");
+let glob = require("glob");
+let webpack = require("webpack");
 
 function getEntries(){
 	return Object.assign({},
@@ -51,6 +51,3 @@ module.exports = {
 	},
 
 };
-
-console.log(getEntries());
-

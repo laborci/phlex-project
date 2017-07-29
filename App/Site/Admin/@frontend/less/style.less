@@ -1,0 +1,80 @@
+body, html{
+	height: 100%;
+	overflow: hidden;
+}
+body{
+	//margin:0;
+	background: linear-gradient(135deg, #1e5799 0%,#6ac492 100%);
+}
+
+nav.main{
+	box-shadow: 0 0 20px;
+	background-color: rgba(16,16,16,.6);
+	border-color: rgba(16,16,16,.6);
+}
+
+.box-list, .box-form{
+	height: 50%;
+	padding:15px;
+	overflow: auto;
+
+}
+
+@media (min-width: 992px /*$screen-sm-min*/) {
+	.box-list, .box-form{
+		height: 100%;
+	}
+}
+
+.box-list .panel:not(:last-child){
+	display:none;
+}
+
+.box-list table{
+	width: 100%;
+	th{
+		border-bottom:1px solid #1f90e2;
+		white-space: nowrap;
+		&.min{
+			width: 1%;
+		}
+		&.max{
+			width: 99%;
+		}
+		&.sortable{
+			cursor: pointer;
+			.fa-caret-up, .fa-caret-down{
+				margin-right:10px;
+			}
+			.fa-caret-up{
+				display: none;
+			}
+			.fa-caret-down{
+				color:#ccc;
+			}
+			&.sort-asc{
+				.fa-caret-down{
+					color: #222;
+				}
+			}
+			&.sort-desc{
+				.fa-caret-down{
+					display: none;
+				}
+				.fa-caret-up{
+					display: inline;
+					color: #222;
+				}
+			}
+		}
+	}
+	tbody tr:hover{
+		background-color:#6adbff;
+		cursor: pointer;
+	}
+}
+
+.caret.caret-up {
+	border-top-width: 0;
+	border-bottom: 4px solid #000000;
+}
