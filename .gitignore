@@ -2,4 +2,6 @@
 vendor
 node_modules
 composer.lock
+public/bower
 package-lock.json
+npm-debug.log

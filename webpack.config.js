@@ -5,7 +5,7 @@ let webpack = require("webpack");
 function getEntries(){
 	return Object.assign({},
 		getFolderEntries('./App/Site/Website/@frontend', 'www/'),
-		getFolderEntries('./App/Site/Admin/@frontend', 'admin/'),
+		getFolderEntries('./App/Site/Admin/@frontend', 'admin/')
 	);
 }
 
@@ -48,6 +48,5 @@ module.exports = {
 				]
 			}
 		]
-	},
-
+	}
 };
