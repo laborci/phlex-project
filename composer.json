@@ -1,6 +1,6 @@
 {
-    "name": "laborci/phlex-project",
-    "require": {
-	"laborci/phlex": "dev-master"
-    }
+	"name": "laborci/phlex-project",
+	"require": {
+		"laborci/phlex": "dev-master"
+	}
 }
