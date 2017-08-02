@@ -1,5 +1,8 @@
 <?php namespace App\Entity\User;
 
+use Phlex\Database\DataSource;
+
+
 class UserModel extends \Phlex\RedFox\Model{
 
 	private $passwordSalt = "19686a75d42ad3c1aca865af782bda46";

@@ -1,5 +1,6 @@
 <?php namespace App\Entity\User;
 
+use Phlex\Database\DataSource;
 use Phlex\Database\Filter;
 
 /**

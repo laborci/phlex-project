@@ -7,6 +7,7 @@ class Application extends \Phlex\Cli\Application {
 	public static function getCommands():array {
 		return [
 			new Init(),
+			new QuickTest(),
 		];
 	}
 }

@@ -10,20 +10,21 @@ class Init extends Command{
 	protected function configure() {
 		$this
 			->setName('app:init')
-			->setDescription('Initializes your application')
+			->setDescription('Initializes your application template')
 		;
 	}
 
 	protected function execute(InputInterface $input, OutputInterface $output) {
 		/** @var \Phlex\Database\Access $db */
 		$db = Env::get('database');
-		$db->query("CREATE TABLE IF NOT EXISTS `user` (
-			  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-			  `name` varchar(255) DEFAULT NULL,
-			  `email` varchar(255) DEFAULT NULL,
-			  `password` char(32) DEFAULT NULL,
-			  PRIMARY KEY (`id`)
-			) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
+		$db->query("CREATE TABLE `user` (
+							  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+							  `name` varchar(255) DEFAULT NULL,
+							  `email` varchar(255) DEFAULT NULL,
+							  `password` char(32) DEFAULT NULL COMMENT 'password',
+							  PRIMARY KEY (`id`),
+							  UNIQUE KEY `email` (`email`)
+							) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;");
 
 		$user = new User();
 		$user->name = "Elvis Presley";

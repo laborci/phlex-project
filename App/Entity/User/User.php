@@ -10,7 +10,6 @@ use Phlex\Auth\AuthenticableInterface;
  * px: @property string $name
  * px: @property string $password
  * px: @property string $email
-
  */
 
 class User extends \Phlex\RedFox\Entity implements AuthenticableInterface {
