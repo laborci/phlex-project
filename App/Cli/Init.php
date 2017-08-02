@@ -17,7 +17,7 @@ class Init extends Command{
 	protected function execute(InputInterface $input, OutputInterface $output) {
 		/** @var \Phlex\Database\Access $db */
 		$db = Env::get('database');
-		$db->query("CREATE TABLE `user` (
+		$db->query("CREATE TABLE IF NOT EXISTS `user` (
 							  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
 							  `name` varchar(255) DEFAULT NULL,
 							  `email` varchar(255) DEFAULT NULL,

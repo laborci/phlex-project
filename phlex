@@ -1,5 +1,7 @@
 #!/usr/bin/env php
 <?php
 putenv('ROOT='.realpath(__DIR__));
+putenv('CONTEXT=cli');
+
 require __DIR__.'/autoload.php';
-\App\Cli\Application::cli(true);
+\App\Cli\Application::cli();
