@@ -1,15 +1,15 @@
 <?php namespace App\Site\Admin\Page;
 
-use App\Env;
 use Phlex\Auth\AuthServiceInterface;
 use Phlex\Chameleon\PageResponder;
+use Phlex\Sys\ServiceManager;
 
 
 class Logout extends PageResponder {
 
 	protected function prepare() {
 		/** @var AuthServiceInterface $auth */
-		$auth = Env::get(AuthServiceInterface::class);
+		$auth = ServiceManager::get(AuthServiceInterface::class);
 		$auth->logout();
 		die(header('location:/'));
 	}

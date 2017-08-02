@@ -15,40 +15,12 @@ class Index extends SmartPageResponder implements InjectDependencies {
 	protected $authService;
 
 	public function __construct(AuthServiceInterface $authService) {
+		parent::__construct();
 		$this->authService = $authService;
 	}
 
 	protected function prepare(): bool {
-
-//		$this->addCssInclude('/css/admin/style.css');
-//
-//		 $this->addJsInclude('/bower/jquery/dist/jquery.min.js');
-//
-//		$this->addCssInclude('/bower/bootstrap/dist/css/bootstrap.min.css');
-//		$this->addJsInclude('/bower/bootstrap/dist/js/bootstrap.min.js');
-//
-//		$this->addCssInclude('/bower/font-awesome/css/font-awesome.min.css');
-//
-//		$this->addJsInclude('/bower/air-datepicker/dist/js/datepicker.min.js');
-//		$this->addJsInclude('/bower/air-datepicker/dist/js/i18n/datepicker.en.js');
-//		$this->addCssInclude('/bower/air-datepicker/dist/css/datepicker.min.css');
-//
-//		if(Env::instance()->devmode) {
-//			$this->addJsInclude('/asset/jspm/system.js');
-//			$this->addJsInclude('/asset/jspm/config.js');
-//			$this->addJsInclude('<script>
-//				SystemJS.config({
-//				  map: {
-//				    PXA: "asset/admin/js/PxAdmin"
-//				  }
-//				});
-//				System.import("/asset/admin/js/Admin-page.js");
-//			</script>', true);
-//		}else{
-//		}
-
 		$this->addJsInclude('/dist/admin/Index.js');
-
 		$this->user = $this->authService->getUser();
 		$this->title = 'Phlex Admin';
 		return true;

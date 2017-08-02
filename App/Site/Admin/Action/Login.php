@@ -1,14 +1,15 @@
 <?php namespace App\Site\Admin\Action;
 
-use App\Env;
 use Phlex\Auth\AuthServiceInterface;
 use Phlex\Chameleon\JsonResponder;
+use Phlex\Sys\ServiceManager;
+
 
 class Login extends JsonResponder {
 
 	protected function prepare() {
 		/** @var AuthServiceInterface $authService */
-		$authService = Env::get(AuthServiceInterface::class);
+		$authService = ServiceManager::get(AuthServiceInterface::class);
 
 		$this->getQueryBag();
 		$login = $this->getRequestBag()->get('login');

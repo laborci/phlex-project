@@ -1,21 +1,24 @@
 <?php namespace App;
 
-
-use Phlex\Sys\Log;
-use Phlex\Sys\RequestLog;
-use Phlex\Sys\SqlLog;
-
+use Phlex\Database\Access;
+use Phlex\Routing\Launcher;
+use Phlex\Sys\Log\Log;
+use Phlex\Sys\Log\RequestLog;
+use Phlex\Sys\Log\SqlLog;
+use Phlex\Sys\ServiceManager;
+use Psr\Log\LoggerInterface;
 
 class Env extends \Phlex\Sys\Environment {
 
 	protected function initialize() {
+
 		parent::initialize();
-		if (getenv('CONTEXT') === 'web' && $this->devmode) {
-			$this->bindService('Log')->sharedService(Log::class, null, $this->config['color-log']);
-			$this->bindService('SqlLog')->sharedService(SqlLog::class, null, $this->config['color-log']);
-			$this->bindService('RequestLog')->sharedService(RequestLog::class, null, $this->config['color-log']);
-		}
-		$this->bindService('database')->sharedService(\Phlex\Database\Access::class, $this->config['database'], $this->getService('SqlLog'));
+
+		ServiceManager::bind(LoggerInterface::class)->sharedService(Log::class);
+		ServiceManager::bind(LoggerInterface::class, Access::class)->sharedService(SqlLog::class);
+		ServiceManager::bind(LoggerInterface::class, Launcher::class)->sharedService(RequestLog::class);
+
+		ServiceManager::bind('database')->sharedService(Access::class, $this->config['database']);
 	}
 
 }

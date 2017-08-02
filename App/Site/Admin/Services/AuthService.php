@@ -1,14 +1,9 @@
-<?php namespace App\Site\Admin\Services\Authentication;
+<?php namespace App\Site\Admin\Services;
 
 use App\Entity\User\User;
-use Phlex\Auth\AuthContainerInterface;
 use Phlex\Auth\AuthenticableInterface;
-use Phlex\Auth\AuthService;
-use Phlex\Database\Filter;
-use Phlex\RedFox\EmptyResultException;
 
-
-class AdminAuthService extends AuthService implements \Phlex\Auth\AuthServiceInterface {
+class AuthService extends \Phlex\Auth\AuthService {
 
 	/**
 	 * @return User|null

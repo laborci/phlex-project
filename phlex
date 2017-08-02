@@ -2,6 +2,9 @@
 <?php
 putenv('ROOT='.realpath(__DIR__));
 putenv('CONTEXT=cli');
+ini_set('error_log', './var/log/app.log');
+
+\App\Env::load();
 
 require __DIR__.'/autoload.php';
 \App\Cli\Application::cli();

@@ -1,11 +1,7 @@
-<?php
+<?php namespace App\Site\Admin\Action;
 
-namespace App\Site\Admin\Action;
-
-
-use App\Env;
 use Phlex\Chameleon\JsonResponder;
-
+use Phlex\Sys\ServiceManager;
 
 class Form extends JsonResponder {
 
@@ -15,7 +11,7 @@ class Form extends JsonResponder {
 		$this->formName = $this->getPathBag()->get('name');
 
 		/** @var \App\Site\Admin\Services\AdminService $service */
-		$service = Env::get($this->formName.'Admin');
+		$service = ServiceManager::get($this->formName.'Admin');
 		$this->data['result'] = $service->getFormData($this->getRequestBag());
 	}
 

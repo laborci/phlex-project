@@ -1,7 +1,7 @@
 <?php namespace App\Cli;
 
 use App\Entity\User\User;
-use App\Env;
+use Phlex\Sys\ServiceManager;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -16,7 +16,7 @@ class Init extends Command{
 
 	protected function execute(InputInterface $input, OutputInterface $output) {
 		/** @var \Phlex\Database\Access $db */
-		$db = Env::get('database');
+		$db = ServiceManager::get('database');
 		$db->query("CREATE TABLE IF NOT EXISTS `user` (
 							  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
 							  `name` varchar(255) DEFAULT NULL,
