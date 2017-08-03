@@ -4,7 +4,8 @@ putenv('ROOT='.realpath(__DIR__));
 putenv('CONTEXT=cli');
 ini_set('error_log', './var/log/app.log');
 
-\App\Env::load();
-
 require __DIR__.'/autoload.php';
+
+if(file_exists(__DIR__.'/config/config.php')) \App\Env::load();
+
 \App\Cli\Application::cli();
