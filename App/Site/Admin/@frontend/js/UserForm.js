@@ -17,7 +17,7 @@ export default class UserForm extends Form {
 
 	createFields() {
 		this.fields = [
-			new Text('id'),
+			new Show('id'),
 			new Text('name'),
 			new Text('email')
 		];

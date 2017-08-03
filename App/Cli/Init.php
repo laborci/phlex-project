@@ -5,6 +5,8 @@ use Phlex\Sys\ServiceManager;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Style\SymfonyStyle;
+
 
 class Init extends Command{
 	protected function configure() {
@@ -15,9 +17,15 @@ class Init extends Command{
 	}
 
 	protected function execute(InputInterface $input, OutputInterface $output) {
+
+		$style = new SymfonyStyle($input, $output);
+
+		$style->title('Initializing your application');
+
 		/** @var \Phlex\Database\Access $db */
 		$db = ServiceManager::get('database');
-		$db->query("CREATE TABLE IF NOT EXISTS `user` (
+		try {
+			$db->query("CREATE TABLE `user` (
 							  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
 							  `name` varchar(255) DEFAULT NULL,
 							  `email` varchar(255) DEFAULT NULL,
@@ -25,13 +33,30 @@ class Init extends Command{
 							  PRIMARY KEY (`id`),
 							  UNIQUE KEY `email` (`email`)
 							) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;");
+			$style->success('Table for User entity created');
+		}catch (\PDOException $exception){
+			if($exception->getCode() === '42S01'){
+				$style->note(['Table already exists', $exception->getMessage()]);
+			}else{
+				throw $exception;
+			}
+		}
 
 		$user = new User();
 		$user->name = "Elvis Presley";
 		$user->email = "elvis@presley.com";
 		$user->password = "vegas";
-		$user->save();
+		try {
+			$user->save();
+		}catch (\PDOException $exception){
+			if($exception->getCode() === '23000'){
+				$style->note(['User already exists', $exception->getMessage()]);
+			}else{
+				throw $exception;
+			}
+		}
 
+		$style->success('Done');
 	}
 
 }

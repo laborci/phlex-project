@@ -1,6 +1,7 @@
 {
 	"name": "laborci/phlex-project",
 	"require": {
-		"laborci/phlex": "dev-master"
+		"laborci/phlex": "dev-master",
+		"badcow/lorem-ipsum": "^1.1"
 	}
 }
