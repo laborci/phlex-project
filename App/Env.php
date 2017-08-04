@@ -19,7 +19,6 @@ class Env extends \Phlex\Sys\Environment {
 		ServiceManager::bind(LoggerInterface::class, Launcher::class)->sharedService(RequestLog::class);
 
 		ServiceManager::bind('database')->sharedService(Access::class, Env::get('database'));
-		ServiceManager::bind('secondary-database')->sharedService(Access::class, Env::get('secondary-database'));
 	}
 
 }
