@@ -1,9 +1,7 @@
 <?php namespace App\Cli;
 
-use App\Entity\User\User;
-use App\Entity\User\UserRepository;
-use Phlex\Database\DataSource;
-use Phlex\Database\ResultSet;
+use App\Entity\CommentArticle\CommentArticle;
+use Phlex\Database\Filter;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -21,21 +19,38 @@ class QuickTest extends Command{
 	protected function execute(InputInterface $input, OutputInterface $output) {
 		$style = new SymfonyStyle($input, $output);
 
-		$access = User::repository()->getDataSource()->getAccess();
 
-		print_r($access->getRowsWithKey('SELECT email, user.* FROM user'));
-		print_r($access->getValuesWithKey('SELECT id, name FROM user'));
+		$access = CommentArticle::repository()->getDataSource()->getAccess();
 
-		/*$generator = new \Badcow\LoremIpsum\Generator();
+		$timestamp = microtime();
+		$comments = CommentArticle::repository()->getSourceRequest(Filter::where('itemId = 2'))->collect(50, 50000);
+		$style->success( microtime() - $timestamp );
 
-		for($i=0;$i<20;$i++) {
-			$words = $generator->getRandomWords(3);
-			$user = new User();
-			$user->name = ucfirst($words[0])." ".ucfirst($words[1]);
-			$user->email = "$words[1]@$words[0].com";
-			$user->password = $words[2];
-			$user->save();
-		}*/
+
+		$timestamp = microtime();
+		$ids = $access->getValues("SELECT id
+        FROM comment_article
+        where itemId = 2
+        ORDER BY id desc
+        LIMIT 50 OFFSET 50000");
+		$comments = CommentArticle::repository()->getSourceRequest(Filter::where('id in ($1)', $ids))->collect();
+		$style->success( microtime() - $timestamp );
+
+
+		//$access = User::repository()->getDataSource()->getAccess();
+		//print_r($access->getRowsWithKey('SELECT email, user.* FROM user'));
+		//print_r($access->getValuesWithKey('SELECT id, name FROM user'));
+
+		//$generator = new \Badcow\LoremIpsum\Generator();
+/*
+		for($i=0;$i<200000;$i++) {
+			//$words = $generator->getRandomWords(3);
+			$comment = new CommentArticle();
+			$comment->text = 'BLABLA';
+			$comment->itemId = random_int(1,3);
+			$comment->save();
+		}
+*/
 	}
 
 }
