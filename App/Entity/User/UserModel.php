@@ -14,10 +14,15 @@ class UserModel extends \Phlex\RedFox\Model{
 		$this->addField('name', (new \Phlex\RedFox\Fields\StringField("varchar(255)")));
 		$this->addField('password', (new \Phlex\RedFox\Fields\PasswordField("char(32)", $this->passwordSalt)));
 		$this->addField('email', (new \Phlex\RedFox\Fields\StringField("varchar(255)")));
+		$this->addField('hasNewMessage', (new \Phlex\RedFox\Fields\BoolField("tinyint(1)")));
+		$this->addField('status', (new \Phlex\RedFox\Fields\EnumField("enum('pre','active','limbo','banned')"))->setOptions(['pre','active','limbo','banned']));
+		$this->addField('access', (new \Phlex\RedFox\Fields\EnumField("enum('visitor','admin')"))->setOptions(['visitor','admin']));
 	}
 
 	protected function decorateFields(){}
 	protected function relations(){}
-	protected function attachments(){}
+	protected function attachments(){
+		$this->hasAttachmentGroup('avatar');
+	}
 
 }

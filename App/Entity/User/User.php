@@ -9,6 +9,10 @@ use Phlex\Auth\AuthenticableInterface;
  * px: @property string $name
  * px: @property string $password
  * px: @property string $email
+ * px: @property bool $hasNewMessage
+ * px: @property string $status
+ * px: @property string $access
+ * px: @property-read \Phlex\RedFox\Attachment\AttachmentManager $avatar
 
  */
 
