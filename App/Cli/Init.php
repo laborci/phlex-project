@@ -57,7 +57,9 @@ class Init extends Command{
 			}
 		}
 
-		User::repository()->pick(1)->avatar->addFile(new File('./elvis.jpg'));
+		$avatarFile = \App\Env::get('path_root').'App/Cli/elvis.jpg');
+		User::repository()->pick(1)->avatar->addFile(new File($avatarFile);
+		unlink($avatarFile);
 
 		$style->success('Done');
 	}
