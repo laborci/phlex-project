@@ -1,6 +1,5 @@
 <?php namespace App\Cli;
 
-use App\Entity\CommentArticle\CommentArticle;
 use Phlex\Database\Filter;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -20,22 +19,22 @@ class QuickTest extends Command{
 		$style = new SymfonyStyle($input, $output);
 
 
-		$access = CommentArticle::repository()->getDataSource()->getAccess();
-
-		$timestamp = microtime();
-		$comments = CommentArticle::repository()->getSourceRequest(Filter::where('itemId = 2'))->collect(50, 50000);
-		$style->success( microtime() - $timestamp );
-
-
-		$timestamp = microtime();
-		$ids = $access->getValues("SELECT id
-        FROM comment_article
-        where itemId = 2
-        ORDER BY id desc
-        LIMIT 50 OFFSET 50000");
-		$comments = CommentArticle::repository()->getSourceRequest(Filter::where('id in ($1)', $ids))->collect();
-		$style->success( microtime() - $timestamp );
-
+		//$access = CommentArticle::repository()->getDataSource()->getAccess();
+		//
+		//$timestamp = microtime();
+		//$comments = CommentArticle::repository()->getSourceRequest(Filter::where('itemId = 2'))->k;  ->collect(50, 50000);
+		//$style->success( microtime() - $timestamp );
+		//
+		//
+		//$timestamp = microtime();
+		//$ids = $access->getValues("SELECT id
+       // FROM comment_article
+       // where itemId = 2
+       // ORDER BY id desc
+       // LIMIT 50 OFFSET 50000");
+		//$comments = CommentArticle::repository()->getSourceRequest(Filter::where('id in ($1)', $ids))->collect();
+		//$style->success( microtime() - $timestamp );
+		//
 
 		//$access = User::repository()->getDataSource()->getAccess();
 		//print_r($access->getRowsWithKey('SELECT email, user.* FROM user'));

@@ -1,9 +1,6 @@
 <?php namespace App\Entity\User;
 
 use Phlex\Auth\AuthenticableInterface;
-use Phlex\Database\DataSource;
-use Phlex\RedFox\Repository;
-
 
 /**
  * px: @method static \App\Entity\User\UserRepository repository()
@@ -17,13 +14,10 @@ use Phlex\RedFox\Repository;
 
 class User extends \Phlex\RedFox\Entity implements AuthenticableInterface {
 
-	public function checkPassword($password): bool { return $password === $this->password; }
-
-	/*
-	public static function secondaryRepository():UserRepository{
-		static $repository;
-		return is_null($repository) ? $repository = new UserRepository(new DataSource('user_copy', 'database'), get_called_class()) : $repository;
+	public function checkPassword($password): bool {
+		/** @var \Phlex\RedFox\Fields\PasswordField $field */
+		$field = static::model()->getField('password');
+		return $field->check($password, $this->password);
 	}
-	*/
 
 }
