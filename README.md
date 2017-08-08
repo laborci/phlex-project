@@ -26,4 +26,5 @@ This will create two files in the config folder. Include the local.conf into you
 ./phlex app:init
 ```
 This command creates a user table into your database, and adds a user to it. (login: **elvis@presley.com**, password: **vegas**)
+
 7. Test http://www.yourawesome.com and http://admin.youravesome.com in your browser!
