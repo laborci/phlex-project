@@ -32,7 +32,7 @@ class Init extends Command{
 							  `password` char(32) DEFAULT NULL COMMENT 'password',
 							  PRIMARY KEY (`id`),
 							  UNIQUE KEY `email` (`email`)
-							) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;");
+							) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;");
 			$style->success('Table for User entity created');
 		}catch (\PDOException $exception){
 			if($exception->getCode() === '42S01'){
