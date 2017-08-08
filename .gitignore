@@ -7,3 +7,4 @@ public/thumbnails/*
 public/files/*/*
 package-lock.json
 npm-debug.log
+.htaccess

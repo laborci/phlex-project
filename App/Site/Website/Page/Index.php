@@ -21,10 +21,10 @@ class Index extends SmartPageResponder {
 				<div class="cover-container">
 
 					<div class="inner cover" style="text-align: center;">
-						<h1 class="cover-heading">Phlex works</h1>
+						<h1 class="cover-heading"><img style="border-radius: 15px;" src="{{.user.avatar.first.thumbnail.height(30).png}}"> Phlex works</h1>
 						<p class="lead">You are almost a phlexer! It's time to grind!</p>
 						<img src="/img/grinder.svg" width="30%"><br>
-						<img style="border-radius: 100px;" src="{{.user.avatar.first.thumbnail.height(200).png}}">
+
 					</div>
 				</div>
 			</div>
