@@ -6,6 +6,7 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
+use Symfony\Component\HttpFoundation\File\File;
 
 
 class Init extends Command{
@@ -55,6 +56,8 @@ class Init extends Command{
 				throw $exception;
 			}
 		}
+
+		User::repository()->pick(1)->avatar->addFile(new File('./elvis.jpg'));
 
 		$style->success('Done');
 	}

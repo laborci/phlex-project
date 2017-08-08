@@ -27,10 +27,10 @@ class Login extends SmartPageResponder {
 							<form role="form" method="post">
 								<fieldset>
 									<div class="form-group">
-										<input type="text" id="login" name="login" placeholder="e-mail" class="input-xlarge" value="elvis@elvis.hu">
+										<input type="text" id="login" name="login" placeholder="e-mail" class="input-xlarge" value="elvis@presley.com">
 									</div>
 									<div class="form-group">
-										<input type="password" id="password" name="password" placeholder="password" class="input-xlarge" value="galaga">
+										<input type="password" id="password" name="password" placeholder="password" class="input-xlarge" value="vegas">
 									</div>
 									<!-- Change this to a button or input when using this as a form -->
 									<button type="button" class="btn btn-success">Login</button>
@@ -47,7 +47,6 @@ class Login extends SmartPageResponder {
 			</div>
 
 			<hr>
-			Mielőtt az adminisztrációs felületet működésbe hozhatnád, még egy két dolgot meg kell tegyél!
 		</div>
 
 
