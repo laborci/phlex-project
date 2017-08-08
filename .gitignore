@@ -3,5 +3,7 @@ vendor
 node_modules
 composer.lock
 public/bower
+public/thumbnails/*
+public/files/*/*
 package-lock.json
 npm-debug.log
