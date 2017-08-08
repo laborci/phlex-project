@@ -19,7 +19,7 @@ class UserModel extends \Phlex\RedFox\Model{
 	protected function decorateFields(){}
 	protected function relations(){}
 	protected function attachments(){
-		$this->hasAttachmentGroup('avatar')->acceptExtensions(['jpg','png'])->maxFileCount(1);
+		$this->hasAttachmentGroup('avatar')->acceptExtensions('jpg','png')->maxFileCount(1);
 	}
 
 }
