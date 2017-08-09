@@ -1,8 +1,5 @@
 <?php namespace App\Entity\User;
 
-use Phlex\Database\DataSource;
-
-
 class UserModel extends \Phlex\RedFox\Model{
 
 	private $passwordSalt = "19686a75d42ad3c1aca865af782bda46";
@@ -23,3 +20,10 @@ class UserModel extends \Phlex\RedFox\Model{
 	}
 
 }
+
+/**
+ * @package App\Entity\User
+ * @method \App\Entity\User\User[] collect($limit = null, $offset = null)
+ * @method \App\Entity\User\User pick()
+ */
+class Request extends \Phlex\Database\Request{}
