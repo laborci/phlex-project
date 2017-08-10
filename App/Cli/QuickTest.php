@@ -24,7 +24,7 @@ class QuickTest extends Command{
 		/** @var array $avatars */
 		$user->avatar->addFile(new File('/Users/elvis/Desktop/pecs_varosnezes_latnivalok.jpg'));
 
-		$users = User::repository()->getSourceRequest()->pick();
+		$users = User::repository()->search()->pick();
 
 		$user = User::repository()->pick(3);
 		$avatars = $user->avatar->getAttachments();

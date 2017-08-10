@@ -24,7 +24,7 @@ class ListPage extends \Phlex\Chameleon\SmartPageResponder {
 		$this->addJsInclude('/js/admin/listPage.js');
 
 		$this->setFields();
-		$this->items = User::repository()->getSourceRequest()->collect();
+		$this->items = User::repository()->search()->collect();
 	}
 
 	protected function bodyTpl() {?>

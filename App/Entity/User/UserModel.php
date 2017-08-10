@@ -23,8 +23,7 @@ class UserModel extends \Phlex\RedFox\Model{
 }
 
 /**
- * @package App\Entity\User
- * @method \App\Entity\User\User[] collect($limit = null, $offset = null)
- * @method \App\Entity\User\User pick()
+ * px: @method \App\Entity\User\User[] collect($limit = null, $offset = null)
+ * px: @method \App\Entity\User\User pick()
  */
 class Request extends \Phlex\Database\Request{}

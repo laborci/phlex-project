@@ -66,7 +66,7 @@ abstract class AdminService {
 
 
 	final private function collectListItems(ParameterBag $requestParamBag, &$count = null){
-		$request = $this->getRepository()->getSourceRequest($this->buildListFilter($requestParamBag->get('filter')));
+		$request = $this->getRepository()->search($this->buildListFilter($requestParamBag->get('filter')));
 		$this->applyListOrder($request, $requestParamBag->get('order'));
 		$paging = $requestParamBag->get('paging');
 
