@@ -2,6 +2,9 @@
 	"name": "laborci/phlex-project",
 	"require": {
 		"laborci/phlex": "dev-master",
-		"badcow/lorem-ipsum": "^1.1"
+		"badcow/lorem-ipsum": "^1.1",
+		"PhpMailer/PhpMailer": "^6.0",
+		"riimu/kit-phpencoder": "^2.3",
+		"zeptech/annotations": "^1.1"
 	}
 }

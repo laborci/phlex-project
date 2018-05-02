@@ -6,16 +6,14 @@ use Phlex\RedFox\Attachment\ThumbnailResponder;
 use Phlex\Routing\Request;
 use Phlex\Routing\Router;
 
-
+/**
+ * @domain @ www.@
+ */
 class Site extends \Phlex\Routing\Site {
-
-	protected function domainMatch(Request $request): bool {
-		return $request->fnMatchHost('www.*', Env::get('domain'));
-	}
 
 	function route(Router $router) {
 		$router->get('/thumbnails/*', ThumbnailResponder::class);
-		$router->addMiddleware(ErrorCatcher::class);
+		//$router->addMiddleware(ErrorCatcher::class);
 		$router->get('/',Page\Index::class);
 	}
 

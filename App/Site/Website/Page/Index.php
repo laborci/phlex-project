@@ -14,13 +14,14 @@ class Index extends SmartPageResponder {
 	}
 
 
-	protected function bodyTpl() { ?>
+	protected function BODY() { ?>
 
 		<div class="site-wrapper">
 			<div class="site-wrapper-inner">
 				<div class="cover-container">
 
 					<div class="inner cover" style="text-align: center;">
+						{{.user.name}}
 						<h1 class="cover-heading"><img style="border-radius: 15px;" src="{{.user.avatar.first.thumbnail.height(30).png}}"> Phlex works</h1>
 						<p class="lead">You are almost a phlexer! It's time to grind!</p>
 						<img src="/img/grinder.svg" width="30%"><br>
