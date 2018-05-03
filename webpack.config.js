@@ -1,19 +1,22 @@
-let path = require("path");
-let glob = require("glob");
-let webpack = require("webpack");
+var path = require("path");
+var glob = require("glob");
+var webpack = require("webpack");
+var frontend = require("./@webpack-entry-points");
 
 function getEntries(){
-	return Object.assign({},
-		getFolderEntries('./App/Site/Website/@frontend', 'www/'),
-		getFolderEntries('./App/Site/Admin/@frontend', 'admin/')
-	);
+	var entries = {};
+	var folder;
+	for(folder in frontend){
+		Object.assign(entries, getFolderEntries(folder, frontend[folder]));
+	}
+	return entries;
 }
 
 function getFolderEntries(folder, prefix){
 	return glob.sync(folder + "/*.js").
-			reduce((entries, entry) => Object.assign(entries, {
-				[prefix + entry.replace(folder + "/", '').replace('.js', '')]: entry
-			}), {});
+	reduce((entries, entry) => Object.assign(entries, {
+		[prefix + entry.replace(folder + "/", '').replace('.js', '')]: entry
+	}), {});
 }
 
 module.exports = {
@@ -23,12 +26,12 @@ module.exports = {
 		filename: '[name].js',
 		path: path.resolve(__dirname, 'public/dist')
 	},
-    plugins: [
-        new webpack.ProvidePlugin({
-           $: "jquery",
-           jQuery: "jquery"
-       })
-    ],
+	plugins: [
+		new webpack.ProvidePlugin({
+			$: "jquery",
+			jQuery: "jquery"
+		})
+	],
 	module: {
 		rules: [
 			{
