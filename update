@@ -1,0 +1,6 @@
+git fetch
+git pull
+npm install
+composer update
+gulp compile
+npm run compile

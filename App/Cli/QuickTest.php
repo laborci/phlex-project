@@ -31,38 +31,6 @@ class QuickTest extends Command{
 		foreach ($avatars as $avatar){
 			echo $avatar->getUrl();
 		}
-
-		//$access = CommentArticle::repository()->getDataSource()->getAccess();
-		//
-		//$timestamp = microtime();
-		//$comments = CommentArticle::repository()->getSourceRequest(Filter::where('itemId = 2'))->k;  ->collect(50, 50000);
-		//$style->success( microtime() - $timestamp );
-		//
-		//
-		//$timestamp = microtime();
-		//$ids = $access->getValues("SELECT id
-       // FROM comment_article
-       // where itemId = 2
-       // ORDER BY id desc
-       // LIMIT 50 OFFSET 50000");
-		//$comments = CommentArticle::repository()->getSourceRequest(Filter::where('id in ($1)', $ids))->collect();
-		//$style->success( microtime() - $timestamp );
-		//
-
-		//$access = User::repository()->getDataSource()->getAccess();
-		//print_r($access->getRowsWithKey('SELECT email, user.* FROM user'));
-		//print_r($access->getValuesWithKey('SELECT id, name FROM user'));
-
-		//$generator = new \Badcow\LoremIpsum\Generator();
-/*
-		for($i=0;$i<200000;$i++) {
-			//$words = $generator->getRandomWords(3);
-			$comment = new CommentArticle();
-			$comment->text = 'BLABLA';
-			$comment->itemId = random_int(1,3);
-			$comment->save();
-		}
-*/
 	}
 
 }

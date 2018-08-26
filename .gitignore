@@ -8,3 +8,6 @@ public/files/*/*
 package-lock.json
 npm-debug.log
 .htaccess
+var/log/*/*
+var/log/caches/*/*
+var/log/templates/*/*
