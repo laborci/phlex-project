@@ -5,7 +5,7 @@ use Phlex\Chameleon\HandyResponder;
 
 /**
  * @css style
- * @jsappmodule Form
+ * @jsappmodule Hello
  */
 class Index extends HandyResponder {
 

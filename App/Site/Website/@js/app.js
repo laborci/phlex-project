@@ -1,17 +1,5 @@
 "use strict";
+import AppModuleManager from "phlex-app-module-manager";
+import "./modules/hello";
 
-import Hello from "./modules/hello";
-
-(function(){
-	let availableModules = {
-		Hello: Hello
-	}
-
-	let modules = document.currentScript.getAttribute('modules').split(' ');
-	window.addEventListener('load',()=>{
-		for(let module of modules){
-			availableModules[module].init();
-		}
-	});
-})();
-
+AppModuleManager.launch();
