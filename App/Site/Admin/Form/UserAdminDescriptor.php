@@ -7,6 +7,7 @@ use Phlex\Codex\FormDataManager;
 use Phlex\Codex\FormHandler;
 use Phlex\Codex\ListHandler;
 use Phlex\Codex\Validation\StringLengthValidator;
+use Phlex\RedFox\Entity;
 
 class UserAdminDescriptor extends AdminDescriptor {
 
@@ -22,6 +23,7 @@ class UserAdminDescriptor extends AdminDescriptor {
 	public function setFields(FormDataManager $formDataManager) {
 		$formDataManager->addField('name', 'név')->addValidator(new StringLengthValidator(5));
 		$formDataManager->addField('email', 'e-mail');
+		$formDataManager->addField('password', 'jelszó');
 	}
 
 	public function decorateListHandler(ListHandler $listHandler) {
@@ -32,7 +34,16 @@ class UserAdminDescriptor extends AdminDescriptor {
 	public function decorateFormHandler(FormHandler $formHandler) {
 		$formHandler->addSection()
 			->addInput('text', 'name')
-			->addInput('text', 'email');
+			->addInput('text', 'email')
+			->addInput('password', 'password');
 	}
 
+	protected function createFormDataManager() {
+		return new class($this) extends FormDataManager {
+			public function pack(Entity $item, $data) {
+				if ($data['password'] === null) unset($data['password']);
+				parent::pack($item, $data);
+			}
+		};
+	}
 }

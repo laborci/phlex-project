@@ -5,7 +5,7 @@ use Phlex\Chameleon\HandyResponder;
 
 /**
  * @css style
- * @jsappmodule Hello
+ * @jsappmodule Form
  */
 class Index extends HandyResponder {
 
@@ -20,11 +20,12 @@ class Index extends HandyResponder {
 			<div class="site-wrapper-inner">
 				<div class="cover-container">
 					<div class="inner cover" style="text-align: center;">
-						Hello {{.user.name}}!
-						<div><img style="border-radius: 30px;" src="{{.user.avatar.first.thumbnail.height(60).png}}"></div>
+						Hello {{user.name}}!
+						<div><img style="border-radius: 30px;" src="{{user.avatar.first.thumbnail.height(60).png}}"></div>
 						<h1 class="cover-heading">Phlex works</h1>
 						<p class="lead">It's time to grind!</p>
 						<img src="/img/grinder.svg" width="30%"><br>
+						<ct:Input labelo="user.name" label.str="NAGYBET"></ct:Input>
 					</div>
 				</div>
 			</div>

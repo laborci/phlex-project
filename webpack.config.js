@@ -37,7 +37,7 @@ module.exports = {
 				//exclude: /node_modules/,
 				loader: "babel-loader",
 				query: {
-					plugins: ["transform-decorators-legacy", "transform-class-properties"]
+					plugins: ["transform-decorators-legacy", "transform-class-properties", "transform-object-rest-spread"]
 				}
 			},
 			{

@@ -1,5 +1,6 @@
 <?php namespace App;
 
+use App\Site\Admin\Service\AuthService;
 use Phlex\Database\Access;
 use Phlex\Routing\Request;
 use Phlex\Sys\Logger;
@@ -11,5 +12,6 @@ class ServiceManager extends \Phlex\Sys\ServiceManager\ServiceManager {
 	static function getRequest(): Request { return static::get('Request'); }
 	static function getResponse(): Response { return static::get('Response'); }
 	static function getLogger(): Logger { return static::get(Logger::class); }
+	static function getAuthService(): AuthService { return static::get('AuthService'); }
 
 }
