@@ -6,7 +6,12 @@ class UserModel extends \Phlex\RedFox\Model{
 
 	protected function relations(){}
 
-	protected function attachments(){}
+	protected function attachments(){
+		$this->hasAttachmentGroup('avatar')
+			->acceptExtensions('jpg', 'png')
+			->maxFileCount(10)
+			->maxFileSize(800 * 1024);
+	}
 
 	public function setDefaults(User $object){}
 
