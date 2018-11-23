@@ -34,19 +34,29 @@ module.exports = {
 		rules: [
 			{
 				test: /\.js$/,
-				//exclude: /node_modules/,
-				loader: "babel-loader",
-				query: {
-					plugins: ["transform-decorators-legacy", "transform-class-properties", "transform-object-rest-spread"]
+				use: {
+					loader: 'babel-loader',
+					options: {
+						presets: ['@babel/preset-env'],
+						plugins: [
+							["@babel/plugin-proposal-decorators", {"legacy": true}],
+							"@babel/plugin-proposal-class-properties",
+							"@babel/plugin-proposal-object-rest-spread",
+							"@babel/plugin-proposal-optional-chaining"
+						]
+					}
 				}
 			},
 			{
-				test: /\.(html|twig)$/,
+				test: /\.(html)$/,
 				use: {
 					loader: 'html-loader'
 				}
 			},
-
+			{
+				test: /\.twig$/,
+				use: 'twig-loader'
+			},
 			{
 				test: /@\.less$/,
 				use: [

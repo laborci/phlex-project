@@ -1,6 +1,0 @@
-git fetch
-git pull
-npm install
-composer update
-gulp build
-npm run build
